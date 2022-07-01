@@ -1,0 +1,48 @@
+/* To prevent any potential data loss issues, you should review this script in detail before running it outside the context of the database designer.*/
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+GO
+CREATE TABLE dbo.questionnaire
+	(
+	id int NOT NULL IDENTITY (1, 1),
+	clientName varchar(50) NULL,
+	clientEntreprise varchar(50) NULL,
+	clientFunction varchar(50) NULL,
+	qualityReceptionLocal varchar(50) NULL,
+	qualityReceptionTel varchar(50) NULL,
+	qualityAdvice varchar(50) NULL,
+	interlocutor varchar(50) NULL,
+	serviceDelivery varchar(50) NULL,
+	serviceAfterSales varchar(50) NULL,
+	serviceGestionCmd varchar(50) NULL,
+	serviceConsulting varchar(50) NULL,
+	communication varchar(50) NULL,
+	reactiviteFlexibilite varchar(50) NULL,
+	technicalKnowledge varchar(50) NULL,
+	assistanceAdvice varchar(50) NULL,
+	consultationFollowUp varchar(50) NULL,
+	reclamationMethode varchar(50) NULL,
+	appreciationGlobal varchar(50) NULL,
+	recommendEcsInformatique varchar(50) NULL,
+	comeBack varchar(50) NULL,
+	commentsSuggestions varchar(200) NULL
+	)  ON [PRIMARY]
+GO
+ALTER TABLE dbo.questionnaire ADD CONSTRAINT
+	PK_Table_1 PRIMARY KEY CLUSTERED 
+	(
+	id
+	) WITH( STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+
+GO
+ALTER TABLE dbo.questionnaire SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
